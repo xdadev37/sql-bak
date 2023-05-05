@@ -1,3 +1,7 @@
 services:
-  sql-diff-back:
-    image: reg.oncolog.ir/mssql-tools
+  sqlcmd:
+    image: ${REGISTRY}/mssql-tools
+    volumes:
+      - type: volume
+        read_only: true
+        source: mssql

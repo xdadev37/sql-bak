@@ -1,3 +1,17 @@
 services:
   mc:
-    image: reg.oncolog.ir/mc
+    image: ${REGISTRY}/mc
+    container_name: mc
+    runtime: crun
+    restart: always
+    entrypoint: tail
+    command: -f /dev/null
+    configs:
+      - source: mc
+        target: /root/.mc/config.json
+    networks:
+      - ingress
+    volumes:
+      - type: volume
+        read_only: true
+        source: mssql
