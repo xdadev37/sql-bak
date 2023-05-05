@@ -1,0 +1,24 @@
+services:
+  ofelia:
+    env_file:
+      - .env
+    extends:
+      service: ofelia
+      file: "./ofelia/compose.yaml"
+  sqlcmd:
+    env_file:
+      - .env
+    extends:
+      service: sqlcmd
+      file: "./sqlcmd/compose.yaml"
+  mc:
+    env_file:
+      - .env
+    extends:
+      service: mc
+      file: "./mc/compose.yaml"
+
+volumes:
+  mssql:
+    name: mssql
+    external: true

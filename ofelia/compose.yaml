@@ -1,0 +1,16 @@
+services:
+  ofelia:
+    image: ${REGISTRY}/ofelia
+    runtime: crun
+    restart: always
+    networks:
+      - ingress
+    volumes:
+      - type: bind
+        read_only: true
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: volume
+        read_only: true
+        source: ftpgrab_data
+        target: /var/ftpgrab_data

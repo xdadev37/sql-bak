@@ -1,0 +1,12 @@
+{
+    "version": "10",
+    "aliases": {
+        "oncolog": {
+            "url": "http://ms3.oncolog.ir",
+            "accessKey": "pouriasa",
+            "secretkey": "4696048pouria",
+            "api": "s3v4",
+            "path": "auto"
+        }
+    }
+}

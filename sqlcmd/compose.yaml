@@ -1,0 +1,3 @@
+services:
+  sql-diff-back:
+    image: reg.oncolog.ir/mssql-tools
