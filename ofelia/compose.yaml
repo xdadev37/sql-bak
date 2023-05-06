@@ -3,6 +3,9 @@ services:
     image: ${REGISTRY}/ofelia
     runtime: crun
     restart: always
+    configs:
+      - source: ofelia
+        target: /etc/ofelia/config.ini
     networks:
       - ingress
     volumes:

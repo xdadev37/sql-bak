@@ -1,17 +1,15 @@
 services:
   mc:
     image: ${REGISTRY}/mc
-    container_name: mc
     runtime: crun
     restart: always
-    entrypoint: tail
-    command: -f /dev/null
+    command: mirror --overwrite /var/mssql/ oncolog/sto-db/
+    network_mode: host
     configs:
       - source: mc
         target: /root/.mc/config.json
-    networks:
-      - ingress
     volumes:
       - type: volume
         read_only: true
         source: mssql
+        target: /var/mssql/

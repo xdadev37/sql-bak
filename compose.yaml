@@ -22,3 +22,18 @@ volumes:
   mssql:
     name: mssql
     external: true
+
+networks:
+  ingress:
+    name: ingress
+    driver: overlay
+    attachable: true
+    external: true
+
+configs:
+  ofelia:
+    name: ofelia
+    file: "./ofelia/config.ini"
+  mc:
+    name: mc
+    file: "./mc/config.json"

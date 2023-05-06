@@ -1,7 +1,9 @@
 services:
   sqlcmd:
     image: ${REGISTRY}/mssql-tools
-    volumes:
-      - type: volume
-        read_only: true
-        source: mssql
+    runtime: crun
+    restart: always
+    entrypoint: tail
+    command: -f /dev/null
+    networks:
+      - ingress
