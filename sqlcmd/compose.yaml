@@ -3,6 +3,7 @@ services:
     image: ${REGISTRY}/mssql-tools
     runtime: crun
     restart: always
+    container_name: sqlcmd
     entrypoint: tail
     command: -f /dev/null
     networks:

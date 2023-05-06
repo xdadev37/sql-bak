@@ -3,7 +3,7 @@ services:
     image: ${REGISTRY}/mc
     runtime: crun
     restart: always
-    command: mirror --overwrite /var/mssql/ oncolog/sto-db/
+    command: mirror --overwrite --watch /var/mssql/ oncolog/sto-db/
     network_mode: host
     configs:
       - source: mc
