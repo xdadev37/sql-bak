@@ -7,7 +7,7 @@ services:
       - source: ofelia
         target: /etc/ofelia/config.ini
     networks:
-      - ingress
+      - mssql
     volumes:
       - type: bind
         read_only: true

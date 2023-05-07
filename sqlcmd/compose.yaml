@@ -7,4 +7,4 @@ services:
     entrypoint: tail
     command: -f /dev/null
     networks:
-      - ingress
+      - mssql

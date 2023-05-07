@@ -24,8 +24,8 @@ volumes:
     external: true
 
 networks:
-  ingress:
-    name: ingress
+  mssql:
+    name: mssql
     driver: overlay
     attachable: true
     external: true
