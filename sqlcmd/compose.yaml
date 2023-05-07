@@ -3,8 +3,15 @@ services:
     image: ${REGISTRY}/mssql-tools
     runtime: crun
     restart: always
-    container_name: sqlcmd
     entrypoint: tail
+    container_name: sqlcmd
     command: -f /dev/null
+    environment:
+      SUB: ${SUB}
     networks:
       - mssql
+    configs:
+      - source: db-bak-full
+        target: /var/db-bak-full.sh
+      - source: db-bak-diff
+        target: /var/db-bak-diff.sh
