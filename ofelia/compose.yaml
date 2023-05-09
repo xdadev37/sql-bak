@@ -3,6 +3,8 @@ services:
     image: ${REGISTRY}/ofelia
     runtime: crun
     restart: always
+    environment:
+      TZ: "Asia/Tehran"
     configs:
       - source: ofelia
         target: /etc/ofelia/config.ini
