@@ -1,33 +1,23 @@
 services:
   sqlcmd:
-    env_file:
-      - .env
     extends:
       service: sqlcmd
       file: "./sqlcmd/compose.yaml"
   mc:
-    env_file:
-      - .env
     extends:
       service: mc
       file: "./mc/compose.yaml"
   ofelia:
-    env_file:
-      - .env
     extends:
       service: ofelia
       file: "./ofelia/compose.yaml"
 
 volumes:
   mssql:
-    name: mssql
     external: true
 
 networks:
   mssql:
-    name: mssql
-    driver: overlay
-    attachable: true
     external: true
 
 configs:
