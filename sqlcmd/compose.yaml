@@ -1,7 +1,7 @@
 services:
   sqlcmd:
     image: ${REGISTRY}/mssql-tools
-    runtime: crun
+    runtime: runc
     restart: always
     entrypoint: tail
     container_name: sqlcmd

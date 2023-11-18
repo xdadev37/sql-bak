@@ -1,7 +1,7 @@
 services:
   ofelia:
     image: ${REGISTRY}/ofelia
-    runtime: crun
+    runtime: runc
     restart: always
     environment:
       TZ: "Asia/Tehran"

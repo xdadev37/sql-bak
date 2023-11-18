@@ -1,7 +1,7 @@
 services:
   mc:
     image: ${REGISTRY}/mc
-    runtime: crun
+    runtime: runc
     restart: always
     container_name: mc-mssql
     entrypoint: tail
