@@ -7,5 +7,5 @@ services:
     command: -f /dev/null
     network_mode: host
     volumes:
-      - "./mc/config.json:/root/.mc/config.json"
+      - "./config.json:/root/.mc/config.json"
       - "mssql:/var/mssql/:ro"

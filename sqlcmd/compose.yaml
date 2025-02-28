@@ -8,7 +8,7 @@ services:
     networks:
       - mssql
     volumes:
-      - "./sqlcmd/db-bak-full.sh:/var/db-bak-full.sh"
-      - "./sqlcmd/db-bak-diff.sh:/var/db-bak-diff.sh"
+      - "./db-bak-full.sh:/var/db-bak-full.sh"
+      - "./db-bak-diff.sh:/var/db-bak-diff.sh"
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
