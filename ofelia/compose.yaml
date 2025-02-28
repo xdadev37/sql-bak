@@ -1,17 +1,12 @@
 services:
   ofelia:
-    image: ${REGISTRY}/ofelia
-    runtime: runc
+    image: reg.oncolog.ir/ofelia
+    container_name: ofelia-sql
     restart: always
     environment:
       TZ: "Asia/Tehran"
-    configs:
-      - source: ofelia
-        target: /etc/ofelia/config.ini
     networks:
       - mssql
     volumes:
-      - type: bind
-        read_only: true
-        source: /var/run/docker.sock
-        target: /var/run/docker.sock
+      - "./ofelia/config.ini:/etc/ofelia/config.ini"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"

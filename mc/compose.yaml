@@ -1,17 +1,11 @@
 services:
   mc:
-    image: ${REGISTRY}/mc
-    runtime: runc
+    image: reg.oncolog.ir/mc
     restart: always
     container_name: mc-mssql
-    entrypoint: tail
+    entrypoint: /usr/bin/tail
     command: -f /dev/null
     network_mode: host
-    configs:
-      - source: mc
-        target: /root/.mc/config.json
     volumes:
-      - type: volume
-        read_only: true
-        source: mssql
-        target: /var/mssql/
+      - "./mc/config.json:/root/.mc/config.json"
+      - "mssql:/var/mssql/:ro"

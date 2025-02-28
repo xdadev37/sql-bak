@@ -1,3 +1,5 @@
+name: sql-bak
+
 services:
   sqlcmd:
     extends:
@@ -14,24 +16,10 @@ services:
 
 volumes:
   mssql:
-    name: ${ROOT_PROJ}_mssql
+    name: mssql
     external: true
 
 networks:
   mssql:
-    name: ${ROOT_PROJ}_mssql
+    name: mssql
     external: true
-
-configs:
-  mc:
-    name: mc
-    file: "./mc/config.json"
-  ofelia:
-    name: ofelia
-    file: "./ofelia/config.ini"
-  db-bak-full:
-    name: db-bak-full
-    file: "./sqlcmd/db-bak-full.sh"
-  db-bak-diff:
-    name: db-bak-diff
-    file: "./sqlcmd/db-bak-diff.sh"
