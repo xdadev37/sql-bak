@@ -18,9 +18,9 @@ volumes:
   mssql:
     name: mssql
     external: true
-  sepidardb:
-    name: sepidardb
-    external: true
+  # sepidardb:
+  #   name: sepidardb
+  #   external: true
 
 networks:
   mssql:
