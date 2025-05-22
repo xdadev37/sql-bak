@@ -8,4 +8,5 @@ services:
     network_mode: host
     volumes:
       - "./config.json:/root/.mc/config.json"
-      - "mssql:/var/mssql/:ro"
+      - "mssql:/var/mssql:ro"
+      - "sepidardb:/var/sepidardb:ro"
