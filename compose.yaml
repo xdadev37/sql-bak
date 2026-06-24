@@ -1,4 +1,4 @@
-name: sql-bak
+name: ${NAME}
 
 services:
   sqlcmd:
