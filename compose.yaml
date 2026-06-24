@@ -4,7 +4,6 @@ services:
   sqlcmd:
     image: mcr.microsoft.com/mssql-tools
     restart: unless-stopped
-    container_name: sqlcmd
     entrypoint: /usr/bin/tail
     command: -f /dev/null
     environment:
@@ -22,7 +21,6 @@ services:
 
   ofelia:
     image: mcuadros/ofelia
-    container_name: ofelia
     restart: unless-stopped
     environment:
       TZ: "Asia/Tehran"
