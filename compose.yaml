@@ -2,27 +2,31 @@ name: sql-bak
 
 services:
   sqlcmd:
-    extends:
-      service: sqlcmd
-      file: "./sqlcmd/compose.yaml"
-  mc:
-    extends:
-      service: mc
-      file: "./mc/compose.yaml"
+    image: mcr.microsoft.com/mssql-tools
+    restart: unless-stopped
+    container_name: sqlcmd
+    entrypoint: /usr/bin/tail
+    command: -f /dev/null
+    environment:
+      - NAME=${NAME}
+      - ADDRESS=${ADDRESS}
+      - PASSWORD=${PASSWORD}
+      - S3URL=${S3URL}
+      - S3BUCKET=${S3BUCKET}
+      - DB1=${DB1}
+      - DB2=${DB2}
+    network_mode: host
+    volumes:
+      - "./dbbakscripts:/var/dbbakscripts"
+      - "/etc/localtime:/etc/localtime:ro"
+
   ofelia:
-    extends:
-      service: ofelia
-      file: "./ofelia/compose.yaml"
-
-volumes:
-  mssql:
-    name: mssql
-    external: true
-  # sepidardb:
-  #   name: sepidardb
-  #   external: true
-
-networks:
-  mssql:
-    name: mssql
-    external: true
+    image: mcuadros/ofelia
+    container_name: ofelia
+    restart: unless-stopped
+    environment:
+      TZ: "Asia/Tehran"
+    network_mode: host
+    volumes:
+      - "./config.ini:/etc/ofelia/config.ini"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
