@@ -7,7 +7,6 @@ services:
     entrypoint: /usr/bin/tail
     command: -f /dev/null
     environment:
-      - NAME=${NAME}
       - ADDRESS=${ADDRESS}
       - PASSWORD=${PASSWORD}
       - S3URL=${S3URL}
