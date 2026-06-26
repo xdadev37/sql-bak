@@ -15,8 +15,6 @@ services:
       - DB1=${DB1}
       - DB2=${DB2}
     network_mode: host
-    extra_hosts:
-      - "ms3.legit.net=${IP}"
     volumes:
       - "./dbbakscripts:/var/dbbakscripts:ro"
       - "/etc/localtime:/etc/localtime:ro"
